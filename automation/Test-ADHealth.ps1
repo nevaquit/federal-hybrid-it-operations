@@ -1,7 +1,7 @@
 #requires -Version 5.1
 #requires -Modules ActiveDirectory
 
-<#+
+<#
 .SYNOPSIS
     Performs a read-only health assessment of an Active Directory environment.
 
