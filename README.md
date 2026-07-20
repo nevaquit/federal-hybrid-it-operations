@@ -8,6 +8,16 @@ This repository presents a practical operating model for a fictional federal ben
 
 The environment is intentionally fictional and contains no proprietary agency information, production credentials, tenant identifiers, or sensitive configuration data.
 
+## Start Here
+
+The portfolio is being implemented as one cohesive enterprise environment rather than a collection of disconnected labs.
+
+1. Review the [Local Hyper-V Enterprise Lab Blueprint](architecture/local-hyperv-lab-blueprint.md).
+2. Follow the [Enterprise Lab Build Roadmap](operations/lab-build-roadmap.md).
+3. Use the [Active Directory Health Assessment](automation/Test-ADHealth.md) after the first domain controller is operational.
+
+The initial design is optimized for a Windows 11 Pro Hyper-V host with 16 GB of RAM and approximately 473 GB of available SSD storage. Virtual machines are started in small operating sets until the host memory is upgraded.
+
 ## Scenario
 
 A federal benefits organization must maintain uninterrupted access to core services while integrating on-premises Windows infrastructure with Microsoft Azure. The IT operations team is responsible for:
@@ -43,14 +53,30 @@ flowchart LR
 
 ## Repository Structure
 
-- `architecture/` — current-state, target-state, and data-flow documentation
+- `architecture/` — current-state, target-state, local lab, and data-flow documentation
 - `identity/` — hybrid identity, OU design, access control, and Group Policy baseline
 - `azure/` — networking, NSG, storage, monitoring, and backup design
-- `automation/` — PowerShell operational scripts
-- `operations/` — daily checks, monitoring, backup, patching, and vulnerability management
+- `automation/` — PowerShell operational scripts and usage guides
+- `operations/` — build roadmap, daily checks, monitoring, backup, patching, and vulnerability management
 - `change-management/` — impact assessment, implementation, validation, and rollback
 - `incident-response/` — operational incident playbooks
 - `leadership/` — prioritization, escalation, weekly reporting, and executive communication
+
+## Current Implementation Status
+
+| Capability | Status |
+|---|---|
+| Portfolio operating model | Complete |
+| Local Hyper-V architecture blueprint | Complete |
+| Enterprise lab build roadmap | Complete |
+| Active Directory health automation | Complete; live lab validation pending |
+| Hyper-V host deployment automation | Next |
+| DC01 and forest deployment | Planned |
+| Windows 11 client integration | Planned |
+| DC02 redundancy | Planned |
+| File services | Planned |
+| Monitoring and recovery | Planned |
+| Azure hybrid integration | Planned |
 
 ## Operating Principles
 
