@@ -1,6 +1,44 @@
 # Federal Hybrid IT Operations Portfolio
 
+![Portfolio Status](https://img.shields.io/badge/Portfolio%20Status-In%20Progress-blue)
+![Current Phase](https://img.shields.io/badge/Current%20Phase-Hyper--V%20Host%20Automation-orange)
+![Last Updated](https://img.shields.io/badge/Last%20Updated-July%2021%2C%202026-brightgreen)
+
 Enterprise hybrid IT operations portfolio demonstrating Windows Server, Active Directory, Microsoft Entra ID, Azure infrastructure, PowerShell automation, monitoring, change management, vulnerability remediation, incident response, and disaster recovery practices.
+
+## Latest Progress: July 21, 2026
+
+The portfolio structure and operating model are now established as one cohesive enterprise environment. The current milestone is Hyper-V host readiness automation, which will validate the lab host, prepare the required directory structure, and generate machine-readable and recruiter-friendly readiness reports.
+
+**Latest update:** [Read the July 21, 2026 Enterprise Infrastructure Portfolio Update](docs/portfolio-update-2026-07-21.md)
+
+### Milestone Snapshot
+
+| Phase | Milestone | Status |
+|---|---|---|
+| Foundation | Portfolio operating model | Complete |
+| Architecture | Local Hyper-V enterprise blueprint | Complete |
+| Planning | Enterprise lab build roadmap | Complete |
+| Automation | Active Directory health assessment | Complete, live validation pending |
+| Automation | Hyper-V host readiness toolkit | Current |
+| Core Infrastructure | DC01 and forest deployment | Upcoming |
+| Endpoint Integration | Windows 11 domain client | Upcoming |
+| Resilience | DC02 redundancy and recovery validation | Upcoming |
+| Hybrid Cloud | Microsoft Entra ID and Azure integration | Future |
+
+## Portfolio Roadmap
+
+```mermaid
+flowchart LR
+    A[Completed: Operating Model] --> B[Completed: Hyper-V Architecture]
+    B --> C[Completed: Lab Build Roadmap]
+    C --> D[Current: Host Readiness Automation]
+    D --> E[Upcoming: DC01 and Forest]
+    E --> F[Upcoming: Windows 11 Client]
+    F --> G[Upcoming: DC02 and File Services]
+    G --> H[Future: Monitoring and Recovery]
+    H --> I[Future: Azure Hybrid Integration]
+```
 
 ## Purpose
 
@@ -12,9 +50,10 @@ The environment is intentionally fictional and contains no proprietary agency in
 
 The portfolio is being implemented as one cohesive enterprise environment rather than a collection of disconnected labs.
 
-1. Review the [Local Hyper-V Enterprise Lab Blueprint](architecture/local-hyperv-lab-blueprint.md).
-2. Follow the [Enterprise Lab Build Roadmap](operations/lab-build-roadmap.md).
-3. Use the [Active Directory Health Assessment](automation/Test-ADHealth.md) after the first domain controller is operational.
+1. Read the [latest portfolio update](docs/portfolio-update-2026-07-21.md).
+2. Review the [Local Hyper-V Enterprise Lab Blueprint](architecture/local-hyperv-lab-blueprint.md).
+3. Follow the [Enterprise Lab Build Roadmap](operations/lab-build-roadmap.md).
+4. Use the [Active Directory Health Assessment](automation/Test-ADHealth.md) after the first domain controller is operational.
 
 The initial design is optimized for a Windows 11 Pro Hyper-V host with 16 GB of RAM and approximately 473 GB of available SSD storage. Virtual machines are started in small operating sets until the host memory is upgraded.
 
@@ -53,14 +92,15 @@ flowchart LR
 
 ## Repository Structure
 
-- `architecture/` — current-state, target-state, local lab, and data-flow documentation
-- `identity/` — hybrid identity, OU design, access control, and Group Policy baseline
-- `azure/` — networking, NSG, storage, monitoring, and backup design
-- `automation/` — PowerShell operational scripts and usage guides
-- `operations/` — build roadmap, daily checks, monitoring, backup, patching, and vulnerability management
-- `change-management/` — impact assessment, implementation, validation, and rollback
-- `incident-response/` — operational incident playbooks
-- `leadership/` — prioritization, escalation, weekly reporting, and executive communication
+- `architecture/` - current-state, target-state, local lab, and data-flow documentation
+- `identity/` - hybrid identity, OU design, access control, and Group Policy baseline
+- `azure/` - networking, NSG, storage, monitoring, and backup design
+- `automation/` - PowerShell operational scripts and usage guides
+- `operations/` - build roadmap, daily checks, monitoring, backup, patching, and vulnerability management
+- `change-management/` - impact assessment, implementation, validation, and rollback
+- `incident-response/` - operational incident playbooks
+- `leadership/` - prioritization, escalation, weekly reporting, and executive communication
+- `docs/` - progress updates, lessons learned, troubleshooting records, and project roadmap
 
 ## Current Implementation Status
 
@@ -69,14 +109,16 @@ flowchart LR
 | Portfolio operating model | Complete |
 | Local Hyper-V architecture blueprint | Complete |
 | Enterprise lab build roadmap | Complete |
-| Active Directory health automation | Complete; live lab validation pending |
-| Hyper-V host deployment automation | Next |
+| Active Directory health automation | Complete, live lab validation pending |
+| Professional repository documentation | Complete |
+| Hyper-V host readiness automation | Current |
 | DC01 and forest deployment | Planned |
 | Windows 11 client integration | Planned |
 | DC02 redundancy | Planned |
 | File services | Planned |
 | Monitoring and recovery | Planned |
 | Azure hybrid integration | Planned |
+| Demonstration video | Planned |
 
 ## Operating Principles
 
