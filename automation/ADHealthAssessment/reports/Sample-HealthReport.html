@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Sample Active Directory Health Report</title>
+<style>
+body{font-family:Segoe UI,Arial,sans-serif;margin:28px;background:#f5f7fa;color:#1f2937}
+h1{color:#17365d}.summary{background:white;padding:18px;border-radius:8px;margin-bottom:18px}
+table{border-collapse:collapse;width:100%;background:white}th,td{border:1px solid #d1d5db;padding:9px;text-align:left;vertical-align:top}th{background:#17365d;color:white}
+.Pass{background:#dcfce7}.Warning{background:#fef3c7}.Fail{background:#fee2e2}.Info{background:#dbeafe}
+</style>
+</head>
+<body>
+<div class="summary">
+<h1>Active Directory Health Assessment</h1>
+<p><strong>Generated:</strong> July 28, 2026 9:30 AM</p>
+<p><strong>Computer:</strong> MGMT01</p>
+<p><strong>Forest:</strong> enterprise.local</p>
+<p><strong>Domain:</strong> enterprise.local</p>
+<p><strong>Overall status:</strong> Warning | Failures: 0 | Warnings: 1</p>
+<p><em>Sanitized fictional portfolio sample.</em></p>
+</div>
+<table>
+<thead><tr><th>Category</th><th>Check</th><th>Status</th><th>Details</th><th>Recommendation</th></tr></thead>
+<tbody>
+<tr class="Warning"><td>Directory</td><td>Domain Controller Count</td><td>Warning</td><td>1</td><td>Deploy a second domain controller to improve resiliency and maintenance flexibility.</td></tr>
+<tr class="Pass"><td>Services</td><td>NTDS</td><td>Pass</td><td>Service status: Running</td><td></td></tr>
+<tr class="Pass"><td>Replication</td><td>repadmin /replsummary</td><td>Pass</td><td>No replication failures detected in the sample environment.</td><td></td></tr>
+<tr class="Pass"><td>DNS</td><td>Domain Controller SRV Records</td><td>Pass</td><td>1 LDAP SRV record response returned.</td><td></td></tr>
+<tr class="Info"><td>FSMO</td><td>PDCEmulator</td><td>Info</td><td>DC01.enterprise.local</td><td></td></tr>
+</tbody>
+</table>
+</body>
+</html>
