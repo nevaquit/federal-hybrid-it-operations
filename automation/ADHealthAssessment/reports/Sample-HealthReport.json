@@ -1,0 +1,47 @@
+{
+  "AssessmentName": "Active Directory Health Assessment",
+  "GeneratedAt": "2026-07-28T09:30:00-04:00",
+  "ComputerName": "MGMT01",
+  "Forest": "enterprise.local",
+  "Domain": "enterprise.local",
+  "OverallStatus": "Warning",
+  "Failures": 0,
+  "Warnings": 1,
+  "Results": [
+    {
+      "Category": "Directory",
+      "Check": "Domain Controller Count",
+      "Status": "Warning",
+      "Details": "1",
+      "Recommendation": "Deploy a second domain controller to improve resiliency and maintenance flexibility."
+    },
+    {
+      "Category": "Services",
+      "Check": "NTDS",
+      "Status": "Pass",
+      "Details": "Service status: Running",
+      "Recommendation": ""
+    },
+    {
+      "Category": "Replication",
+      "Check": "repadmin /replsummary",
+      "Status": "Pass",
+      "Details": "No replication failures detected in the sample environment.",
+      "Recommendation": ""
+    },
+    {
+      "Category": "DNS",
+      "Check": "Domain Controller SRV Records",
+      "Status": "Pass",
+      "Details": "1 LDAP SRV record response returned.",
+      "Recommendation": ""
+    },
+    {
+      "Category": "FSMO",
+      "Check": "PDCEmulator",
+      "Status": "Info",
+      "Details": "DC01.enterprise.local",
+      "Recommendation": ""
+    }
+  ]
+}
