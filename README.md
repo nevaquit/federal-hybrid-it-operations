@@ -1,16 +1,18 @@
 # Federal Hybrid IT Operations Portfolio
 
 ![Portfolio Status](https://img.shields.io/badge/Portfolio%20Status-In%20Progress-blue)
-![Current Phase](https://img.shields.io/badge/Current%20Phase-DC01%20Build%20%26%20Toolkit%20Validation-orange)
+![Current Phase](https://img.shields.io/badge/Current%20Phase-DC01%20Deployment%20Automation-orange)
 ![Last Updated](https://img.shields.io/badge/Last%20Updated-July%2028%2C%202026-brightgreen)
 
 Enterprise hybrid IT operations portfolio demonstrating Windows Server, Active Directory, Microsoft Entra ID, Azure infrastructure, PowerShell automation, monitoring, change management, vulnerability remediation, incident response, and disaster recovery practices.
 
 ## Latest Progress: July 28, 2026
 
-The Active Directory Health Assessment Toolkit has been expanded into a documented enterprise automation package. The repository now includes operational guidance, a detailed health-check catalog, sanitized sample HTML and JSON reports, report-handling guidance, and an updated automation index.
+The portfolio has advanced from Active Directory health monitoring into controlled infrastructure deployment. A new DC01 automation package now prepares the server, deploys the `corp.hjfb.lab` forest, and validates the completed domain controller with HTML and JSON evidence.
 
-**Featured artifact:** [Active Directory Health Assessment Toolkit](automation/ADHealthAssessment/README.md)
+**Featured deployment artifact:** [DC01 Deployment Automation](automation/DC01/README.md)
+
+**Featured operations artifact:** [Active Directory Health Assessment Toolkit](automation/ADHealthAssessment/README.md)
 
 **Latest update:** [Read the July 28, 2026 Enterprise Infrastructure Portfolio Update](docs/portfolio-update-2026-07-28.md)
 
@@ -22,8 +24,9 @@ The Active Directory Health Assessment Toolkit has been expanded into a document
 | Architecture | Local Hyper-V enterprise blueprint | Complete |
 | Planning | Enterprise lab build roadmap | Complete |
 | Automation | Active Directory health assessment toolkit | Complete, live validation pending |
-| Automation | Hyper-V host readiness toolkit | Planned |
+| Automation | DC01 deployment automation package | Complete, live execution pending |
 | Core Infrastructure | DC01 and forest deployment | Current |
+| Network Services | DNS and DHCP post-deployment configuration | Next |
 | Endpoint Integration | Windows 11 domain client | Upcoming |
 | Resilience | DC02 redundancy and recovery validation | Upcoming |
 | Hybrid Cloud | Microsoft Entra ID and Azure integration | Future |
@@ -35,12 +38,14 @@ flowchart LR
     A[Completed: Operating Model] --> B[Completed: Hyper-V Architecture]
     B --> C[Completed: Lab Build Roadmap]
     C --> D[Completed: AD Health Toolkit]
-    D --> E[Current: DC01 and Forest Build]
-    E --> F[Validate Toolkit on DC01]
-    F --> G[Upcoming: Windows 11 Client]
-    G --> H[Upcoming: DC02 and File Services]
-    H --> I[Future: Monitoring and Recovery]
-    I --> J[Future: Azure Hybrid Integration]
+    D --> E[Completed: DC01 Automation Package]
+    E --> F[Current: Execute DC01 and Forest Build]
+    F --> G[Next: DNS and DHCP Configuration]
+    G --> H[Validate AD Health Toolkit]
+    H --> I[Upcoming: Windows 11 Client]
+    I --> J[Upcoming: DC02 and File Services]
+    J --> K[Future: Monitoring and Recovery]
+    K --> L[Future: Azure Hybrid Integration]
 ```
 
 ## Purpose
@@ -53,16 +58,30 @@ The environment is intentionally fictional and contains no proprietary agency in
 
 The portfolio is being implemented as one cohesive enterprise environment rather than a collection of disconnected labs.
 
-1. Read the [latest portfolio update](docs/portfolio-update-2026-07-28.md).
-2. Review the [Local Hyper-V Enterprise Lab Blueprint](architecture/local-hyperv-lab-blueprint.md).
-3. Follow the [Enterprise Lab Build Roadmap](operations/lab-build-roadmap.md).
-4. Review the [Automation Portfolio Index](automation/README.md).
-5. Examine the [Active Directory Health Assessment Toolkit](automation/ADHealthAssessment/README.md).
-6. Use the toolkit after DC01 is operational and compare its findings with native tools such as `dcdiag` and `repadmin`.
+1. Review the [Local Hyper-V Enterprise Lab Blueprint](architecture/local-hyperv-lab-blueprint.md).
+2. Follow the [Enterprise Lab Build Roadmap](operations/lab-build-roadmap.md).
+3. Review the [Automation Portfolio Index](automation/README.md).
+4. Execute the [DC01 Deployment Automation](automation/DC01/README.md) in the isolated lab.
+5. Validate the completed server with `Test-DC01Deployment.ps1`.
+6. Run the [Active Directory Health Assessment Toolkit](automation/ADHealthAssessment/README.md) and compare its findings with `dcdiag` and `repadmin`.
 
 The initial design is optimized for a Windows 11 Pro Hyper-V host with 16 GB of RAM and approximately 473 GB of available SSD storage. Virtual machines are started in small operating sets until the host memory is upgraded.
 
-## Featured Engineering Artifact
+## Featured Engineering Artifacts
+
+### DC01 Deployment Automation
+
+The DC01 package demonstrates phased infrastructure deployment rather than an undifferentiated build script. It includes:
+
+- Static network configuration and server naming
+- AD DS, DNS, and DHCP role installation
+- Secure forest deployment for `corp.hjfb.lab`
+- Runtime-only handling of the DSRM password
+- PowerShell `ShouldProcess` and `-WhatIf` support
+- Post-deployment validation using Active Directory, DNS, SMB, service, `dcdiag`, and `repadmin` checks
+- HTML and JSON validation reports
+
+See the [DC01 deployment guide](automation/DC01/README.md).
 
 ### Active Directory Health Assessment Toolkit
 
@@ -75,7 +94,6 @@ The toolkit performs a read-only assessment of core directory services and produ
 - DNS zone and domain-controller SRV record validation
 - FSMO role-holder discovery
 - Critical and error event-log analysis
-- Consistent Pass, Warning, Fail, and Info result objects
 - Actionable remediation guidance and monitoring-friendly exit codes
 
 See the [toolkit documentation](automation/ADHealthAssessment/README.md), [health-check catalog](automation/ADHealthAssessment/docs/Health-Checks.md), and [sanitized report samples](automation/ADHealthAssessment/reports/README.md).
@@ -118,7 +136,7 @@ flowchart LR
 - `architecture/` - current-state, target-state, local lab, and data-flow documentation
 - `identity/` - hybrid identity, OU design, access control, and Group Policy baseline
 - `azure/` - networking, NSG, storage, monitoring, and backup design
-- `automation/` - PowerShell operational tooling, usage guides, sample reports, and validation procedures
+- `automation/` - PowerShell deployment, operational tooling, usage guides, sample reports, and validation procedures
 - `operations/` - build roadmap, daily checks, monitoring, backup, patching, and vulnerability management
 - `change-management/` - impact assessment, implementation, validation, and rollback
 - `incident-response/` - operational incident playbooks
@@ -133,10 +151,10 @@ flowchart LR
 | Local Hyper-V architecture blueprint | Complete |
 | Enterprise lab build roadmap | Complete |
 | Active Directory health automation | Complete, live lab validation pending |
-| AD health toolkit documentation and sample reports | Complete |
-| Professional repository documentation | Complete |
-| Hyper-V host readiness automation | Planned |
-| DC01 and forest deployment | Current |
+| DC01 prerequisite automation | Complete, live execution pending |
+| HJFB forest deployment automation | Complete, live execution pending |
+| DC01 deployment validation | Complete, live execution pending |
+| DNS and DHCP post-deployment configuration | Next |
 | Windows 11 client integration | Planned |
 | DC02 redundancy | Planned |
 | File services | Planned |
@@ -169,7 +187,7 @@ The change-management package demonstrates how to evaluate technical dependencie
 
 ### Operational Automation
 
-The [automation portfolio](automation/README.md) demonstrates structured PowerShell engineering, read-only health validation, standardized reporting, meaningful exit codes, remediation guidance, and future integration with scheduled tasks, monitoring platforms, and CI quality gates.
+The [automation portfolio](automation/README.md) demonstrates phased deployment, structured PowerShell engineering, dry-run support, secure secret handling, read-only health validation, standardized reporting, meaningful exit codes, and future integration with scheduled tasks, monitoring platforms, and CI quality gates.
 
 ### Leadership Reporting
 
