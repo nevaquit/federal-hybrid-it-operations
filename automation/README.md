@@ -1,8 +1,28 @@
 # Automation Portfolio
 
-This directory contains PowerShell automation designed to support enterprise infrastructure operations, repeatable validation, evidence collection, and future monitoring integration.
+This directory contains PowerShell automation designed to support enterprise infrastructure deployment, repeatable validation, evidence collection, and future monitoring integration.
 
-## Featured Toolkit
+## Featured Toolkits
+
+### DC01 Deployment Automation
+
+Location: [`DC01/`](DC01/README.md)
+
+This package implements the current core-infrastructure milestone. It includes:
+
+- Static IPv4 and DNS client configuration
+- Server rename and Windows role installation
+- New forest deployment for `corp.hjfb.lab`
+- Secure runtime handling of the DSRM password
+- DC01 deployment validation
+- HTML and JSON evidence generation
+
+Supporting material includes:
+
+- [DC01 automation guide](DC01/README.md)
+- [`Initialize-DC01.ps1`](DC01/Initialize-DC01.ps1)
+- [`Deploy-HJFBForest.ps1`](DC01/Deploy-HJFBForest.ps1)
+- [`Test-DC01Deployment.ps1`](DC01/Test-DC01Deployment.ps1)
 
 ### Active Directory Health Assessment
 
@@ -49,6 +69,7 @@ Automation in this portfolio should include:
 - Structured PowerShell objects
 - Clear error handling
 - Read-only behavior unless modification is explicitly required
+- `SupportsShouldProcess` and `-WhatIf` for high-impact changes
 - Meaningful exit codes
 - Human-readable and machine-readable reporting
 - Security-conscious evidence handling
@@ -57,10 +78,11 @@ Automation in this portfolio should include:
 ## Usage Principles
 
 1. Test scripts in a non-production lab.
-2. Validate results against native administrative tools.
-3. Review generated evidence for sensitive information.
-4. Apply peer review and change control before production adoption.
-5. Record lessons learned and remediation outcomes.
+2. Review high-impact changes with `-WhatIf` before execution.
+3. Validate results against native administrative tools.
+4. Review generated evidence for sensitive information.
+5. Apply peer review and change control before production adoption.
+6. Record lessons learned and remediation outcomes.
 
 ## Current Automation Roadmap
 
@@ -68,8 +90,11 @@ Automation in this portfolio should include:
 |---|---|
 | Active Directory baseline health script | Complete |
 | Active Directory Health Assessment Toolkit | Complete, live validation pending |
+| DC01 prerequisite automation | Complete, live execution pending |
+| HJFB forest deployment automation | Complete, live execution pending |
+| DC01 validation automation | Complete, live execution pending |
 | Hyper-V host readiness toolkit | Planned |
-| DC01 deployment automation | Planned |
+| DHCP and DNS post-deployment automation | Next |
 | Active Directory user provisioning module | Planned |
 | Group Policy baseline validation | Planned |
 | Windows Server health toolkit | Planned |
@@ -77,4 +102,4 @@ Automation in this portfolio should include:
 
 ## Interview Talking Points
 
-This automation portfolio demonstrates the ability to translate infrastructure operations into repeatable engineering controls, produce audit-friendly evidence, separate executive and technical reporting needs, and design tools that can later integrate with scheduled tasks, monitoring platforms, and CI pipelines.
+This automation portfolio demonstrates the ability to translate infrastructure operations into phased, repeatable engineering controls; protect secrets; support dry runs; produce audit-friendly evidence; separate deployment from validation; and design tools that can later integrate with scheduled tasks, monitoring platforms, and CI pipelines.
